@@ -76,7 +76,7 @@ jobs:
         env:
           nowInstallInstance: ${{ env.SN_INSTANCE }}
 
-      # TODO: Add the instance scan step here (Part 2)
+      
       - name: Run Instance Scan
         uses: ServiceNow/sncicd-instance-scan@2.0.0
         with:
