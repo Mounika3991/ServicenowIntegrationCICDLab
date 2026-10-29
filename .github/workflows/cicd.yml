@@ -65,4 +65,4 @@ jobs:
           nowUsername: ${{ secrets.SN_USERNAME }}
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ env.SN_INSTANCE_DOMAIN }}
-          appScope: x_cd_grc_app
+          appScope: x_snc_safety
