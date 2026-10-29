@@ -66,3 +66,16 @@ jobs:
           nowPassword: ${{ secrets.SN_PASSWORD }}
           nowSourceInstance: ${{ env.SN_INSTANCE }}
           appScope: x_cd_grc_app
+
+      - name: Call x_cd_grc_app_risk_assessment
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+        run: |
+          code=$(curl -s -o out.json -w "%{http_code}" -u "$nowUsername:$nowPassword" \
+            -H "Accept: application/json" \
+            "https://$SN_INSTANCE.service-now.com/api/now/table/x_cd_grc_app_risk_assessment?sysparm_limit=1")
+          echo "HTTP status: $code"
+          cat out.json
+          [ "$code" = "200" ]
+
